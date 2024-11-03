@@ -13,10 +13,6 @@ def get_mask_card_number(num_of_card: Union[int, str]) -> str:
     return result
 
 
-
-
-
-
 def get_mask_account(account_number: Union[int, str]) -> str:
     """функция ввода номера счета"""
     account_number = str(account_number)
@@ -25,6 +21,3 @@ def get_mask_account(account_number: Union[int, str]) -> str:
     result_1 = "".join([masked_acc_num[-6:-4], masked_acc_num[-4:]])
 
     return result_1
-
-
-
