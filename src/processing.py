@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Any, Dict, List
 
 data = [
     {"id": 939719570, "state": "CANCELED", "date": "2018-06-30T02:08:58.425572"},
@@ -8,7 +8,7 @@ data = [
 ]
 
 
-def filter_by_state(data: List[Dict[str, str]], state="EXECUTED") -> List[Dict[str, str]]:
+def filter_by_state(data: List[Dict[str, Any]], state: str = "EXECUTED") -> List[Dict[str, Any]]:
     """функция получения списка словарей"""
     data_state = []
     for dictionary in data:
@@ -20,8 +20,8 @@ def filter_by_state(data: List[Dict[str, str]], state="EXECUTED") -> List[Dict[s
     return data_state
 
 
-full_res_dic = filter_by_state(data)
-print(full_res_dic)
+full_result_dict = filter_by_state(data)
+print(full_result_dict)
 
 
 data_1 = [
@@ -32,11 +32,11 @@ data_1 = [
 ]
 
 
-def sort_by_date(data_1: List[Dict[str, str]], order=True) -> List[Dict[str, str]]:
+def sort_by_date(data_1: List[Dict[str, Any]], order: bool = True) -> List[Dict[str, Any]]:
     """функция сортировки по дате"""
     sorted_user_date = sorted(data_1, key=lambda p: p["date"], reverse=order)
     return sorted_user_date
 
 
-sorted_user_date_fin = sort_by_date(data_1)
-print(sorted_user_date_fin)
+sorted_user_date_final = sort_by_date(data_1)
+print(sorted_user_date_final)
