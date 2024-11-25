@@ -10,12 +10,12 @@ data = [
 
 def filter_by_state(data: List[Dict[str, Any]], state: str = "EXECUTED") -> List[Dict[str, Any]]:
     """функция получения списка словарей"""
+    # if not state in data:
+    #     raise ValueError("Нет подходящих словарей")
     data_state = []
     for dictionary in data:
-        if dictionary["state"] == "executed".upper():
+        if dictionary.get("state") == state:
             data_state.append(dictionary)
-        else:
-            continue
 
     return data_state
 
@@ -34,7 +34,7 @@ data_1 = [
 
 def sort_by_date(data_1: List[Dict[str, Any]], order: bool = True) -> List[Dict[str, Any]]:
     """функция сортировки по дате"""
-    sorted_user_date = sorted(data_1, key=lambda p: p["date"], reverse=order)
+    sorted_user_date = sorted(data_1, key=lambda p: p.get("date"), reverse=order)
     return sorted_user_date
 
 

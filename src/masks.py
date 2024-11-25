@@ -3,6 +3,12 @@ from typing import Union
 
 def get_mask_card_number(num_of_card: Union[int, str]) -> str:
     """функция ввода номера карты"""
+
+    if not num_of_card.isdigit() or num_of_card == "":
+        raise TypeError("Неверный тип строки")
+    if 0 < len(num_of_card) < 16 or len(num_of_card) > 16:
+        raise ValueError("Неверная длина строки")
+
     num_of_card = str(num_of_card)
     # превращаем в строку
     masked_num_of_card = num_of_card[-16:-10] + "******" + num_of_card[-4:]
@@ -15,6 +21,13 @@ def get_mask_card_number(num_of_card: Union[int, str]) -> str:
 
 def get_mask_account(account_number: Union[int, str]) -> str:
     """функция ввода номера счета"""
+
+    if not account_number.isdigit() or account_number == "":
+        raise TypeError("Неверный тип строки")
+
+    if len(account_number) != 20:
+        raise ValueError("Неверная длина строки")
+
     account_number = str(account_number)
     # превращаем в строку
     masked_acc_num = account_number[-20:-6] + "**" + account_number[-4:]
