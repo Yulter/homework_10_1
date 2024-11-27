@@ -34,7 +34,9 @@ data_1 = [
 
 def sort_by_date(data_1: List[Dict[str, Any]], order: bool = True) -> List[Dict[str, Any]]:
     """функция сортировки по дате"""
-    sorted_user_date = sorted(data_1, key=lambda p: p.get("date"), reverse=order)
+    if data_1 == {}:
+        raise ValueError("None")
+    sorted_user_date = sorted(data_1, key=lambda p: p["date"], reverse=order)
     return sorted_user_date
 
 
